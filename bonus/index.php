@@ -51,20 +51,43 @@
 
     ];
 
-    echo ' 
+
+    $parking = $_GET['parking'];
+
+    echo '
     <form>
-        <label for="name">Name</label>
-        <input type="text" name="name" id="name">
-        <br>
-        <label for="email">Email</label>
-        <input type="text" name="email" id="email">
-        <br>
-        <label for="age">Age</label>
-        <input type="number" name="age" id="age">
-        <br>
-        <input type="submit" value="Invia">
+        <label >Vuoi il parchegghio?!</label>
+        <input type="text" name="parking">
+    </form>';
+
+    if ($parking === "si" or $parking === "Si" or $parking === "SI") {
+        foreach ($hotels as $hotel) {
+            // var_dump($hotel["parking"]);
+            if ($hotel['parking'] === true) {
+                echo "$hotel[name] <br>";
+            }
+        }
+    }
+
+
+    $stars = $_GET['stars'];
+
+    echo '
+    <form>
+        <label >Qunate stelle desidera?</label>
+        <input type="text" name="stars">
     </form>
     ';
+
+    foreach ($hotels as $hotel) {
+        // var_dump($hotel["parking"]);
+        if ($hotel['vote'] >= $stars) {
+            echo "$hotel[name] <br>";
+        }
+    }
+
+
+
 
 
 
